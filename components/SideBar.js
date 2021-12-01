@@ -9,7 +9,7 @@ const SideBar = ({ value, setValue }) => {
         <div>
             <Brand />
             <Calender value={value} setValue={setValue} />
-            <SideBarMenu />
+            <SideBarMenu value={value} />
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import FormModal from './FormModal';
 
-const SideBarMenu = () => {
+const SideBarMenu = ({value}) => {
     const [open, setOpen] = React.useState(false);
 
 
@@ -16,7 +16,7 @@ const SideBarMenu = () => {
             <span className="font-semibold primary-font">Create New Task</span>
             <AiOutlinePlus className="text-white bg-blue-500 font-semibold p-1 w-8 h-8 rounded-full" />
         </div>
-            <FormModal open={open} setOpen={setOpen} />
+            <FormModal open={open} setOpen={setOpen} value={value} />
        </>
     )
 }
