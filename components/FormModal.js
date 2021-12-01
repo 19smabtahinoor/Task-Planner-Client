@@ -1,11 +1,12 @@
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import * as React from 'react';
 import FormInput from './FormInput';
 
-const FormModal = ({ open, setOpen, value }) => {
+const FormModal = ({open,setOpen , value}) => {
 
     const handleClose = () => {
         setOpen(false);
@@ -14,11 +15,13 @@ const FormModal = ({ open, setOpen, value }) => {
     return (
         <div>
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle className="text-center">Add A Task</DialogTitle>
+                <DialogTitle className="text-center">Add A New Task</DialogTitle>
                 <DialogContent>
                     <FormInput value={value} />
                 </DialogContent>
-                <Button className="w-36 mx-auto mb-6 py-3" variant="contained" onClick={handleClose}>Add</Button>
+                <DialogActions>
+                    <Button variant="contained" onClick={handleClose} size="large" sx={{width:'100px',margin:'auto',marginBottom:'8px'}}>Add</Button>
+                </DialogActions>
             </Dialog>
         </div>
     )
