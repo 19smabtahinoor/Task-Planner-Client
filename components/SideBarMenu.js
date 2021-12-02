@@ -12,7 +12,7 @@ const SideBarMenu = ({value}) => {
 
     return (
        <>
-            <div className="bg-white shadow-xl rounded-xl p-4 box-border flex items-center justify-between cursor-pointer" onClick={handleClickOpen}>
+            <div className="bg-white shadow-xl rounded-lg p-4 box-border flex items-center justify-between cursor-pointer" onClick={handleClickOpen}>
             <span className="font-semibold primary-font">Create New Task</span>
             <AiOutlinePlus className="text-white bg-blue-500 font-semibold p-1 w-8 h-8 rounded-full" />
         </div>
