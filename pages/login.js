@@ -10,7 +10,7 @@ const index = () => {
 
     const handleClick = (e) => {
         e.preventDefault()
-        signIn(null, { callbackUrl: 'http://localhost:3000/' });
+        signIn(null, { callbackUrl: 'https://an-task-planner.vercel.app/' });
     }
 
     

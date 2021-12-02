@@ -5,7 +5,6 @@ import FormModal from './FormModal';
 const SideBarMenu = ({value}) => {
     const [open, setOpen] = React.useState(false);
 
-
     const handleClickOpen = () => {
         setOpen(true);
     };
