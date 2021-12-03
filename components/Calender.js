@@ -6,7 +6,7 @@ import * as React from 'react';
 const Calender = ({ value, setValue }) => {
 
     return (
-        <div className="overflow-hidden rounded-lg shadow-xl my-8 bg-white">
+        <div className="overflow-hidden rounded-lg shadow-xl my-10 bg-white">
             <LocalizationProvider dateAdapter={AdapterDateFns} sx={{ background: '#000' }}>
                 <StaticDatePicker
                     displayStaticWrapperAs="desktop"

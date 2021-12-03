@@ -34,7 +34,7 @@ const ProfileInfo = () => {
                     {/* menus  */}
                     {showMenu && (
                         <>
-                            <div className="bg-white rounded-bl rounded-lg shadow-xl p-1 box-border fixed top-24 right-14 w-56">
+                            <div className="bg-white rounded-bl rounded-lg shadow-xl p-1 box-border fixed top-24 right-14 w-56 z-50">
                                 <MenuList>
                                     <MenuItem>
                                         <ListItemIcon>

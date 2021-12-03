@@ -5,15 +5,13 @@ import TextField from '@mui/material/TextField';
 import enLocale from 'date-fns/locale/en-US';
 import * as React from 'react';
 
-const TimePick = () => {
-    const [value, setValue] = React.useState(new Date());
-
+const TimePick = ({ timeValue , setTimeValue}) => {
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns} locale={enLocale}>
             <div>
                 <TimePicker
-                    value={value}
-                    onChange={(newValue) => setValue(newValue)}
+                    value={timeValue}
+                    onChange={(newValue) => setTimeValue(newValue)}
                     renderInput={(params) => <TextField {...params} className="w-96" />}
                 />
             </div>

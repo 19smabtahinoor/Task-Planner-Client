@@ -10,10 +10,9 @@ const index = () => {
 
     const handleClick = (e) => {
         e.preventDefault()
-        signIn(null, { callbackUrl: 'https://an-task-planner.vercel.app/' });
+        signIn(null, { callbackUrl: 'https://an-task-planner.vercel.app/' })
     }
 
-    
     return (
         <div className="flex flex-col justify-center items-center mt-24">
             <h1 className="text-center text-2xl text-gray-500 primary-font">Welcome to <span className="text-3xl text-blue-500 logo-font">Task Planner</span></h1>

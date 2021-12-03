@@ -15,6 +15,16 @@
 .primary-font {
   font-family: 'Poppins', sans-serif;
 }
-/* body {
+body {
   background: #f4f4fa;
+}
+/* body {
+  background: '#F3F4F6';
+  height: 100%;
 } */
+body::-webkit-scrollbar {
+  display: none;
+}
+.card-desc::-webkit-scrollbar {
+  display: none;
+}
