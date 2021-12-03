@@ -18,7 +18,7 @@ const ProfileInfo = () => {
     const handleClick = (e) => {
         e.preventDefault()
         signOut({
-            callbackUrl: "https://an-task-planner.vercel.app/login"
+            callbackUrl: `${process.env.NEXTAUTH_URL}/login`
         });
     }
 
