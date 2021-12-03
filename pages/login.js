@@ -10,7 +10,7 @@ const index = () => {
 
     const handleClick = (e) => {
         e.preventDefault()
-        signIn(null, { callbackUrl: `${process.env.NEXTAUTH_URL}` })
+        signIn(null, { callbackUrl: process.env.NEXTAUTH_URL  })
     }
 
     return (

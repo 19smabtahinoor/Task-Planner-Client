@@ -18,6 +18,7 @@ const ProfileInfo = () => {
     const handleClick = (e) => {
         e.preventDefault()
         signOut({
+            // callbackUrl: "http://locahost:3000/login"
             callbackUrl: `${process.env.NEXTAUTH_URL}/login`
         });
     }
