@@ -18,7 +18,7 @@ const ProfileInfo = () => {
     const handleClick = (e) => {
         e.preventDefault()
         signOut({
-            callbackUrl: "https://an-task-planner.vercel.app/login"
+            callbackUrl: "http://localhost:3000/login"
         });
     }
 
