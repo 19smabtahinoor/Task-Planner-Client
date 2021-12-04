@@ -4,13 +4,13 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 
-const index = () => {
+const Login = () => {
     const router = useRouter()
     const { data: session } = useSession()
 
     const handleClick = (e) => {
         e.preventDefault()
-        signIn(null, { callbackUrl: "https://an-task-planner.vercel.app/" })
+        signIn(null, { callbackUrl: `${process.env.NEXTAUTH_URL}` })
     }
 
     return (
@@ -27,4 +27,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Login

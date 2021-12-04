@@ -19,7 +19,7 @@ const ProfileInfo = () => {
         e.preventDefault()
         signOut({
             // callbackUrl: "http://locahost:3000/login"
-            callbackUrl: "https://an-task-planner.vercel.app/login"
+            callbackUrl: `${process.env.NEXTAUTH_URL}login`
         });
     }
 
