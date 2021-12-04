@@ -5,8 +5,8 @@ export default NextAuth({
     // Configure one or more authentication providers
     providers: [
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            clientId: "1087075559603-e4d5sklrsa06nqqotu09uq32t1uikq7g.apps.googleusercontent.com",
+            clientSecret: "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",
             scope:
                 "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
             authorizationURL:
