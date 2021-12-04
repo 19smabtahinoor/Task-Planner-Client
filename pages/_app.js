@@ -1,6 +1,11 @@
-import 'tailwindcss/tailwind.css'
-import '../styles/index.css'
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "next-auth/react";
+import 'tailwindcss/tailwind.css';
+import initializedFirebaseApp from '../firebase';
+import '../styles/index.css';
+
+
+//initialize firebase
+initializedFirebaseApp();
 
 function MyApp({ 
   Component, 

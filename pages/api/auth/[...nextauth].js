@@ -9,11 +9,17 @@ export default NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
             scope:
                 "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
-            authorizationUrl:
+            authorizationURL:
                 "https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code",
             accessTokenUrl: "https://oauth2.googleapis.com/token",
         })
-    ]
+    ],
+    theme:{
+        logo: "/assets/logo.png",
+        brandColor:"#f4f4f4",
+        colorScheme:"auto"
+    }
 })
 
 
+ 
