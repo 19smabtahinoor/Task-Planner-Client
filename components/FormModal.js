@@ -5,7 +5,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import * as React from 'react';
 import FormInput from './FormInput';
 
-const FormModal = ({open,setOpen , value}) => {
+const FormModal = ({ open, setOpen, value }) => {
     const handleClose = () => {
         setOpen(false);
     };

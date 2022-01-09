@@ -5,10 +5,12 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
-import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/client";
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from 'react-toastify';
+import useTask from '../hooks/useTask';
 import TimePick from './TimePick';
 
 
@@ -17,9 +19,11 @@ const FormInput = ({ value, handleClose }) => {
     const [status, setStatus] = React.useState('Planning todo');
     const [open, setOpen] = React.useState(false);
     const [timeValue, setTimeValue] = React.useState(new Date());
-    const { data: session } = useSession();
+      const [session]  = useSession();
+;
     const { register, handleSubmit } = useForm();
     const router = useRouter()
+    const { tasks, setTasks } = useTask();
 
     const handleChange = (event) => {
         setStatus(event.target.value);
@@ -36,9 +40,16 @@ const FormInput = ({ value, handleClose }) => {
         axios.post('http://localhost:5000/tasks', data)
             .then(res => {
                 if (res) {
-                    alert('Task Added');
-                    router.reload(window.location.pathname)
-
+                    toast.success('New Task Added!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                    setTasks([...tasks, data]);
                 }
             })
     };
@@ -98,6 +109,7 @@ const FormInput = ({ value, handleClose }) => {
                     </Select>
                 </FormControl>
                 <Button type="submit" variant="contained" onClick={handleClose} size="large" sx={{ width: '100px', margin: 'auto', marginBottom: '8px' }}>Add</Button>
+                <ToastContainer />
             </form>
         </>
     )

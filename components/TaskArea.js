@@ -1,23 +1,26 @@
 import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
-import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/client";
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import useTask from '../hooks/useTask';
 import ProfileInfo from './ProfileInfo';
 import TaskCard from './TaskCard';
 
 const TaskArea = ({ value }) => {
     const router = useRouter()
-    const [tasks, setTasks] = useState([]);
+    const {tasks, setTasks} = useTask();
     const [loading, setLoading] = useState(false);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const { data: session } = useSession();
+    const [session]  = useSession();
 
     useEffect(() => {
         axios.get(`http://localhost:5000/tasks?email=${session?.user?.email}&date=${new Date(value).toLocaleDateString(undefined, options)}`)
-            .then(res => setTasks(res.data))
-    }, [value, session?.user?.email])
+            .then(res => {
+                setTasks(res.data)
+            })
+    }, [value, session?.user?.email, tasks])
 
     // loading 
     useEffect(() => {
@@ -50,7 +53,7 @@ const TaskArea = ({ value }) => {
                         ) : (
                             <>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-8">
-                                    {tasks.map((item) => {
+                                    {tasks?.map((item) => {
                                         return (
                                             <>
                                                 <TaskCard key={item._id} {...item} />

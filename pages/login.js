@@ -1,16 +1,15 @@
-import { signIn, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/client";
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
-    const router = useRouter()
-    const { data: session } = useSession()
+      const [session]  = useSession();
+
 
     const handleClick = (e) => {
         e.preventDefault()
-        signIn(null, { callbackUrl: `${process.env.NEXTAUTH_URL}` })
+        signIn()
     }
 
     return (

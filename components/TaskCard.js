@@ -9,17 +9,29 @@ import * as React from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { FcAlarmClock } from 'react-icons/fc';
 import { FiEdit2 } from 'react-icons/fi';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import useTask from '../hooks/useTask';
 
 const TaskCard = (props) => {
     const { _id, title, description, status, date, time, name, email } = props;
-    const router = useRouter()
-
-    const handleDelete = () => {
-        axios.delete(`http://localhost:5000/tasks/${_id}`)
+    const router = useRouter();
+    const {tasks,setTasks} = useTask();
+    const handleDelete = (id) => {
+        toast.success('🦄 Deleted!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        axios.delete(`http://localhost:5000/tasks/${id}`)
         .then(res => {
-            if(res){
-                alert('Deleted');
-                router.reload(window.location.pathname)
+            if (res){
+                
+                setTasks(tasks.filter(task => task._id !== id));
             }
         })
     }
@@ -56,9 +68,10 @@ const TaskCard = (props) => {
             <CardActions>
                 <div className="flex items-center space-x-3 p-2">
                     <FiEdit2  className="text-green-500 text-2xl  cursor-pointer" />
-                    <AiOutlineDelete className="text-red-500 text-2xl cursor-pointer" onClick={handleDelete} />
+                    <AiOutlineDelete className="text-red-500 text-2xl cursor-pointer" onClick={() => handleDelete(_id)} />
                 </div>
             </CardActions>
+            <ToastContainer />
         </Card>
     )
 }

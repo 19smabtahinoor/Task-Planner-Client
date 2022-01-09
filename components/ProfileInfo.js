@@ -2,7 +2,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
-import { signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from 'next-auth/client';
 import Image from 'next/image';
 import * as React from 'react';
 import { FaUser } from 'react-icons/fa';
@@ -12,15 +12,12 @@ import { RiDashboardFill } from 'react-icons/ri';
 
 const ProfileInfo = () => {
     const [showMenu, setShowMenu] = React.useState(false)
-    const { data: session } = useSession();
+    const [session] = useSession()
 
     //sign out function
     const handleClick = (e) => {
         e.preventDefault()
-        signOut({
-            // callbackUrl: "http://locahost:3000/login"
-            callbackUrl: `${process.env.NEXTAUTH_URL}login`
-        });
+        signOut();
     }
 
     return (

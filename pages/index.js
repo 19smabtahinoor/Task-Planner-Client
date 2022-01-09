@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/client";
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import * as React from 'react';
@@ -9,7 +9,7 @@ import Login from "./login";
 export default function Home() {
   const [value, setValue] = React.useState(new Date());
   const [loading, setLoading] = React.useState(false)
-  const { data: session } = useSession();
+  const [session]  = useSession();
   const router = useRouter();
 
   return (
