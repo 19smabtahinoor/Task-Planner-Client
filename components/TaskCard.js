@@ -27,7 +27,7 @@ const TaskCard = (props) => {
             draggable: true,
             progress: undefined,
         });
-        axios.delete(`http://localhost:5000/tasks/${id}`)
+        axios.delete(`https://task-planner-an.herokuapp.com/tasks/${id}`)
         .then(res => {
             if (res){
                 

@@ -37,7 +37,7 @@ const FormInput = ({ value, handleClose }) => {
         data['name'] = session?.user?.name;
         data['email'] = session?.user?.email;
 
-        axios.post('http://localhost:5000/tasks', data)
+        axios.post('https://task-planner-an.herokuapp.com/tasks', data)
             .then(res => {
                 if (res) {
                     toast.success('New Task Added!', {

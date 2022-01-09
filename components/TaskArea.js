@@ -16,7 +16,7 @@ const TaskArea = ({ value }) => {
     const [session]  = useSession();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/tasks?email=${session?.user?.email}&date=${new Date(value).toLocaleDateString(undefined, options)}`)
+        axios.get(`https://task-planner-an.herokuapp.com/tasks?email=${session?.user?.email}&date=${new Date(value).toLocaleDateString(undefined, options)}`)
             .then(res => {
                 setTasks(res.data)
             })
